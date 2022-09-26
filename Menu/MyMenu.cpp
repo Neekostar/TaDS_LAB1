@@ -3,8 +3,10 @@
 //
 #include "MyMenu.h"
 #include <iostream>
+#include <typeinfo>
+#include "C:\\Users\\nekit\\CLionProjects\\TaDS_LAB1\\Models\\Errors.h"
 
-namespace LinkedList {
+namespace DoublyLinkedList {
 
     MyMenu::MyMenu(char *title, MyMenuItem *items, size_t count) : m_title(title), m_items(items), m_count(count) {}
 
@@ -41,12 +43,18 @@ namespace LinkedList {
 
     int MyMenu::runCommand() {
         print();
-        std::cout << "\nSelect >> ";
+        std::cout << "\nВыберите пункт меню: ";
         std::cin >> m_select;
-        if (m_select > m_count || m_select <= 0) {
-            throw ">>>!\n\n";
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore();
+            throw Errors{"String was entered. Enter only digit."};
         }
-        return m_items[m_select - 1].run();
+        if (m_select > m_count || m_select <= 0) {
+            throw Errors{"Enter correct point of menu"};
+        } else {
+            return m_items[m_select - 1].run();
+        }
     }
 
     void MyMenu::setMenuPtr(int *ptr) {

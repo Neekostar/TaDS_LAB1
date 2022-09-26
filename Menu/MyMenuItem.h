@@ -1,7 +1,7 @@
 #ifndef MYMENU_CPP_MYMENUITEM_H
 #define MYMENU_CPP_MYMENUITEM_H
 
-namespace LinkedList {
+namespace DoublyLinkedList {
     class MyMenuItem {
     public:
         typedef int(*Func)();

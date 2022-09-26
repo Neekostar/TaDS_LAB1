@@ -3,7 +3,7 @@
 
 using namespace std;
 
-namespace LinkedList {
+namespace DoublyLinkedList {
     MyMenuItem::MyMenuItem(char *item_name, Func func) : m_item_name(item_name), m_func(func) {}
 
     char *MyMenuItem::getName() {

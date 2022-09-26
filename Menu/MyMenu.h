@@ -4,7 +4,7 @@
 #include "MyMenuItem.h"
 #include <cstddef>
 
-namespace LinkedList {
+namespace DoublyLinkedList {
     class MyMenu {
     public:
         MyMenu();
