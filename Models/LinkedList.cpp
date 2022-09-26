@@ -24,7 +24,7 @@ namespace DoublyLinkedList {
     }
 
     void LinkedList::printDoubleList() {
-        std::cout << "Двусвязный спсиок: ";
+        std::cout << "Двусвязный список: ";
         Node *temp = head;
         while (temp != nullptr) {
             std::cout << temp->data << " ";
@@ -34,9 +34,9 @@ namespace DoublyLinkedList {
     }
 
     void LinkedList::printDoubleListInversive() {
-        std::cout << "Список в обратном переборе: " << std::endl;
+        std::cout << "Двусвязный список в обратном порядке: " << std::endl;
         Node *temp = tail;
-        while (temp != NULL) {
+        while (temp != nullptr) {
             std::cout << temp->data << " ";
             temp = temp->prev;
         }
@@ -55,16 +55,6 @@ namespace DoublyLinkedList {
         }
         lenList++;
         Node *temp = new Node;
-//        temp->next = nullptr;
-//        temp->data = new_data;
-//        if (!isListEmpty()) {
-//            temp->prev = tail;
-//            tail->next = temp;
-//            tail = temp;
-//        } else {
-//            temp->prev = NULL;
-//            head = tail = temp;
-//        }
         temp->data = new_data;
         if (isListEmpty()) {
             temp->prev = nullptr;
@@ -75,6 +65,8 @@ namespace DoublyLinkedList {
         }
         temp->next = nullptr;
         tail = temp;
+        std::cout << "Элемент успешно добавлен в список\n" << std::endl;
+        printDoubleList();
     }
 
     void LinkedList::addToTheStart() {
@@ -99,31 +91,11 @@ namespace DoublyLinkedList {
             temp->next = nullptr;
             head = tail = temp;
         }
+        std::cout << "Элемент успешно добавлен в список\n" << std::endl;
+        printDoubleList();
     }
 
-    void LinkedList::addToTheMiddle() {
-//        char new_data{};
-//        std::cout << "Введите символ для добавления в список: ";
-//        std::cin >> new_data;
-//        Node *tmp = new Node;
-//        tmp->data = new_data;
-//        Node *cyc = new Node;
-//        cyc = head;
-//        int position{};
-//        if (lenList > 2) {
-//            position = lenList / 2;
-//            for (int i = 0; i < position; i++) {
-//                cyc = cyc->next;
-//            }
-//            tmp->next = cyc->next;
-//            tmp->prev = cyc->prev;
-//            cyc->next = tmp;
-//            cyc = cyc->next;
-//            cyc->prev = tmp;
-//            lenList++;
-//        } else {
-//            std::cout << "Добавление в середину возможно при количестве элементов более двух!\n";
-//        }
+    void LinkedList::addToTheAnyPosition() {
         int index{};
         char new_data{};
         std::string data{};
@@ -136,7 +108,7 @@ namespace DoublyLinkedList {
         } else {
             new_data = data[0];
         }
-        if (index >= 0 && index < lenList || isListEmpty()) {
+        if (index >= 0 && index <= lenList || isListEmpty()) {
             if (index == 0) {
                 Node *temp = new Node;
                 temp->data = new_data;
@@ -149,6 +121,8 @@ namespace DoublyLinkedList {
                     temp->next = nullptr;
                     head = tail = temp;
                 }
+                std::cout << "Элемент успешно добавлен в список\n" << std::endl;
+                printDoubleList();
                 return;
             }
             if (index == lenList) {
@@ -163,6 +137,8 @@ namespace DoublyLinkedList {
                 }
                 temp->next = nullptr;
                 tail = temp;
+                std::cout << "Элемент успешно добавлен в список\n" << std::endl;
+                printDoubleList();
                 return;
 
             }
@@ -179,6 +155,8 @@ namespace DoublyLinkedList {
             right->prev = temp;
             temp->data = new_data;
             lenList++;
+            std::cout << "Элемент успешно добавлен в список\n" << std::endl;
+            printDoubleList();
         } else {
             throw Errors{"Incorrect index"};
         }
@@ -186,42 +164,11 @@ namespace DoublyLinkedList {
     }
 
 
-    void LinkedList::DeleteElementNumber() {
+    void LinkedList::DeleteElementByPosition() {
         int index{};
         printDoubleList();
         std::cout << "Пожалуйства, введите индекс элемента для удаления: ";
         std::cin >> index;
-//        if (lenList < index || index <= 0) {
-//            throw Errors{"Invalid delete index"};
-//
-//        } else {
-//            index--;
-//            Node *tmp = new Node;
-//            Node *tmp2 = new Node;
-//            Node *deleteTmp = new Node;
-//            Node *cyc = new Node;
-//            cyc = head;
-//            for (int i = 0; i < index; i++) {
-//                cyc = cyc->next;
-//            }
-//            deleteTmp = cyc;
-//            if (head != deleteTmp & tail != deleteTmp) {
-//                tmp = deleteTmp->next;
-//                tmp2 = deleteTmp->prev;
-//                tmp2->next = tmp;
-//                tmp->prev = tmp2;
-//            } else if (head == deleteTmp) {
-//                tmp = deleteTmp->next;
-//                head = tmp;
-//                tmp->prev = NULL;
-//            } else if (tail == deleteTmp) {
-//                tmp = deleteTmp->prev;
-//                tail = tmp;
-//                tmp->next = NULL;
-//            }
-//            std::cout << "Удаление успешно завершено!\n";
-//            lenList--;
-//        }
         if (index >= 0 && index < lenList) {
             if (isListEmpty()) {
                 throw Errors{"List is empty. Couldn't delete element"};
@@ -244,6 +191,8 @@ namespace DoublyLinkedList {
                 right->prev = left;
             }
             lenList--;
+            std::cout << "Элемент успешно удален\n" << std::endl;
+            printDoubleList();
         } else {
             throw Errors{"Invalid index. Select correct index"};
         }
@@ -294,10 +243,10 @@ namespace DoublyLinkedList {
         }
     }
 
-    void LinkedList::DeleteElementData() {
+    void LinkedList::DeleteElementByData() {
         char deletingData{};
         std::string data{};
-        std::cout << "Введите символ для удаления: ";
+        std::cout << "Введите символ для удаления:\n ";
         std::cin >> data;
         if (data.length() > 1) {
             throw Errors{"Enter only one symbol"};
@@ -306,36 +255,39 @@ namespace DoublyLinkedList {
         }
         int numberOfDeleteElement = findEl(deletingData);
         delete_(numberOfDeleteElement);
+        std::cout << "Элемент успешно удален\n" << std::endl;
+        printDoubleList();
     }
 
     void LinkedList::getLength() {
         std::cout << "Длина вашего списка: " << lenList << std::endl;
+        printDoubleList();
     }
 
     void LinkedList::DeleteList() {
         if (!isListEmpty()) {
             Node *tmp = new Node;
-            while (head != NULL) {
+            while (head != nullptr) {
                 tmp = head;
                 head = head->next;
                 delete[] tmp;
             }
-            tail = NULL;
+            tail = nullptr;
             lenList = 0;
             std::cout << "Список удален.\n";
         } else {
-            std::cout << "Список пустой. Удаление невозможно\n";
+            throw Errors{"List is deleted. Couldn't delete"};
         }
 
     }
 
-    int LinkedList::findEl(char _data) {
+    int LinkedList::findEl(char searching_data) {
         Node *runOnElements = new Node;
         int position = 1;
         runOnElements = head;
         bool flag = false;
         for (int i = 0; i < lenList; i++) {
-            if (runOnElements->data == _data) {
+            if (runOnElements->data == searching_data) {
                 flag = true;
                 break;
             } else {
@@ -355,7 +307,7 @@ namespace DoublyLinkedList {
     void LinkedList::findElement() {
         char searchingData{};
         std::string data{};
-        std::cout << "Введите символ для поиска: ";
+        std::cout << "Введите символ для поиска:\n ";
         std::cin >> data;
         if (data.length() > 1) {
             throw Errors{"Enter only one symbol"};
@@ -372,7 +324,7 @@ namespace DoublyLinkedList {
     }
 
     bool LinkedList::isListEmpty() {
-        if (head == NULL) {
+        if (head == nullptr) {
             return true;
         }
         return false;
@@ -380,7 +332,7 @@ namespace DoublyLinkedList {
 
     void LinkedList::checkForEmpty() {
         if (head == nullptr) {
-            throw Errors{"List empty"};
+            throw Errors{"List is empty"};
         } else {
             std::cout << "В списке есть элементы!\n";
             printDoubleList();
@@ -388,14 +340,14 @@ namespace DoublyLinkedList {
     }
 
     LinkedList LinkedList::CopyList() {
-        LinkedList a;
-        Node *tmp = new Node;
-        tmp = head;
+        LinkedList list;
+        Node *temp = new Node;
+        temp = head;
         for (int i = 0; i < lenList; i++) {
-            a.add(tmp->data);
-            tmp = tmp->next;
+            list.add(temp->data);
+            temp = temp->next;
         }
-        return a;
+        return list;
     }
 
     void LinkedList::add(char new_data) {
@@ -413,29 +365,29 @@ namespace DoublyLinkedList {
         }
     }
 
-    void LinkedList::NotRepeat() {
-        LinkedList a = CopyList();
-        Node *temp = new Node;
+    void LinkedList::repeatingSymbols() {
+        LinkedList list = CopyList();
+        Node *temp1 = new Node;
         Node *temp2 = new Node;
-        int st{};
-        temp = a.head;
-        std::cout << "Символы, которые входят в последовательность по одному разу: ";
+        int checkingCondition{};
+        temp1 = list.head;
+        std::cout << "Символы, которые повторяются в последовательности: ";
         for (int i = 0; i < lenList; i++) {
-            st = 0;
-            if (temp->data != '\0') {
-                temp2 = temp->next;
+            checkingCondition = 0;
+            if (temp1->data != '\0') {
+                temp2 = temp1->next;
                 for (int j = i + 1; j < lenList; j++) {
-                    if (temp->data == temp2->data) {
-                        st = 1;
+                    if (temp1->data == temp2->data) {
+                        checkingCondition = 1;
                         temp2->data = '\0';
                     }
                     temp2 = temp2->next;
                 }
-                if (st != 0) {
-                    std::cout << temp->data << " ";
+                if (checkingCondition != 0) {
+                    std::cout << temp1->data << " ";
                 }
             }
-            temp = temp->next;
+            temp1 = temp1->next;
         }
         std::cout << std::endl;
     }
@@ -443,28 +395,37 @@ namespace DoublyLinkedList {
     void LinkedList::outputFile() {
         std::ofstream fout;
         fout.open("C:\\Users\\nekit\\CLionProjects\\TaDS_LAB1\\Output.txt", std::ios::out);
-        Node *node = head;
-        for (int i = 0; i < lenList; ++i) {
-            fout << node->data << " ";
-            node = node->next;
+        if (fout.is_open()) {
+            Node *node = head;
+            for (int i = 0; i < lenList; ++i) {
+                fout << node->data << " ";
+                node = node->next;
+            }
+            fout.close();
+            std::cout << "Запись в файл завершена!" << std::endl;
+        } else {
+            throw Errors{"File didn't open"};
         }
-        fout.close();
-        std::cout << "Запись в файл завершена!" << std::endl;
     }
 
     void LinkedList::inputFromFile() {
         std::ifstream in;
         std::string line;
         char temp;
+        DeleteList();
         in.open("C:\\Users\\nekit\\CLionProjects\\TaDS_LAB1\\Input.txt", std::ios::in);
-        while (in.get(temp) && !in.eof()) {
-            if (std::isdigit(temp) || std::isalpha(temp)) {
-                add(temp);
+        if (in.is_open()) {
+            while (in.get(temp) && !in.eof()) {
+                if (std::isdigit(temp) || std::isalpha(temp)) {
+                    add(temp);
+                }
             }
+            in.close();
+            std::cout << "Чтение файла завершено!" << std::endl;
+            printDoubleList();
+        } else {
+            throw Errors{"File didn't open"};
         }
-        in.close();
-        std::cout << "Чтение файла завершено!" << std::endl;
-        printDoubleList();
     }
 
 }

@@ -10,17 +10,18 @@ namespace DoublyLinkedList {
     class LinkedList {
     private:
         Node *head, *tail;
-        int lenList{};
 
-        int findEl(char _data);
+        int lenList{}; //вспомогательный метод определения длины списка
 
-        LinkedList CopyList();
+        int findEl(char searching_data); //вспомогательный метод поиска элемента
 
-        void add(char new_data);
+        LinkedList CopyList(); //копируем существующий список для решения задачи
 
-        void delete_(int num);
+        void add(char new_data); //вспомогательный метод добавления элемента
 
-        bool isListEmpty();
+        void delete_(int num); //вспомогательный метод удаления элемента
+
+        bool isListEmpty(); //вспомогательный метод определения наполненности списка
 
     public:
         LinkedList();
@@ -35,21 +36,21 @@ namespace DoublyLinkedList {
 
         void addToTheEnd();
 
-        void addToTheMiddle();
+        void addToTheAnyPosition();
 
         void outputFile();
 
         void inputFromFile();
 
-        void DeleteElementNumber();
+        void DeleteElementByPosition();
 
         void findElement();
 
-        void DeleteElementData();
+        void DeleteElementByData();
 
         void DeleteList();
 
-        void NotRepeat();
+        void repeatingSymbols();
 
         void checkForEmpty();
 

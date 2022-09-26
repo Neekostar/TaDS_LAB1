@@ -82,16 +82,16 @@ void startProgramm(LinkedList list, MyMenu menu) {
                 list.addToTheEnd();
             }
             if (menu.getSelect() == addMiddle()) {
-                list.addToTheMiddle();
+                list.addToTheAnyPosition();
             }
             if (menu.getSelect() == addStart()) {
                 list.addToTheStart();
             }
             if (menu.getSelect() == deletePosition()) {
-                list.DeleteElementNumber();
+                list.DeleteElementByPosition();
             }
             if (menu.getSelect() == deleteValue()) {
-                list.DeleteElementData();
+                list.DeleteElementByData();
             }
             if (menu.getSelect() == findElement()) {
                 list.findElement();
@@ -100,7 +100,7 @@ void startProgramm(LinkedList list, MyMenu menu) {
                 list.checkForEmpty();
             }
             if (menu.getSelect() == repeatingValues()) {
-                list.NotRepeat();
+                list.repeatingSymbols();
             }
             if (menu.getSelect() == del()) {
                 list.DeleteList();
@@ -130,20 +130,20 @@ int main() {
 
     LinkedList list;
     MyMenuItem items[pointsOfMenu]{
-            MyMenuItem{"Добавить элемент в конец", addEnd},
-            MyMenuItem{"Добавить элемент в начало", addStart},
-            MyMenuItem{"Добавить элемент в середину", addMiddle},
-            MyMenuItem{"Удалить элемент по номеру", deletePosition},
+            MyMenuItem{"Добавить элемент в конец списка", addEnd},
+            MyMenuItem{"Добавить элемент в начало списка", addStart},
+            MyMenuItem{"Добавить элемент в любую позицию списка", addMiddle},
+            MyMenuItem{"Удалить элемент по индексу", deletePosition},
             MyMenuItem{"Удалить элемент по значению", deleteValue},
             MyMenuItem{"Вывести список на экран", print},
             MyMenuItem{"Вывести список на экран в обратном порядке", printReverse},
             MyMenuItem{"Поиск по значению", findElement},
-            MyMenuItem{"Проверка на пустоту списка", checkEmpty},
+            MyMenuItem{"Проверка списка на пустоту", checkEmpty},
             MyMenuItem{"Поиск неповторяющихся символов", repeatingValues},
             MyMenuItem{"Удаление списка", del},
-            MyMenuItem{"Просмотр файла с данными", input_file},
-            MyMenuItem{"Запись в файл", output_file},
-            MyMenuItem{"Узнать длину списка", len},
+            MyMenuItem{"Чтение данных из файла", input_file},
+            MyMenuItem{"Запись списка в файл", output_file},
+            MyMenuItem{"Длина списка", len},
             MyMenuItem{"Выход из программы", exitProgram}
     };
     MyMenu menu("Меню двусвязного списка", items, pointsOfMenu);

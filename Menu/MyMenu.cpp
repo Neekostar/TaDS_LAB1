@@ -43,7 +43,7 @@ namespace DoublyLinkedList {
 
     int MyMenu::runCommand() {
         print();
-        std::cout << "\nВыберите пункт меню: ";
+        std::cout << "\nВыберите пункт меню:\n ";
         std::cin >> m_select;
         if (std::cin.fail()) {
             std::cin.clear();

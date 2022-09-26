@@ -33,3 +33,25 @@ WARNING: ERROR! Enter only one symbol|Mon Sep 26 17:38:37 2022
 WARNING: ERROR! Incorrect index|Mon Sep 26 17:39:10 2022
 WARNING: ERROR! String was entered. Enter only digit.|Mon Sep 26 17:39:29 2022
 WARNING: ERROR! Enter only one symbol|Mon Sep 26 17:39:39 2022
+WARNING: ERROR! Enter only one symbol|Mon Sep 26 18:52:06 2022
+WARNING: ERROR! Incorrect index|Mon Sep 26 19:03:48 2022
+WARNING: ERROR! Incorrect index|Mon Sep 26 19:04:14 2022
+WARNING: ERROR! Incorrect index|Mon Sep 26 19:04:25 2022
+WARNING: ERROR! Incorrect index|Mon Sep 26 19:04:58 2022
+WARNING: ERROR! Incorrect index|Mon Sep 26 19:05:36 2022
+WARNING: ERROR! Enter only one symbol|Mon Sep 26 19:06:13 2022
+WARNING: ERROR! Incorrect index|Mon Sep 26 19:12:51 2022
+WARNING: ERROR! Incorrect index|Mon Sep 26 19:17:52 2022
+WARNING: ERROR! String was entered. Enter only digit.|Mon Sep 26 19:18:41 2022
+WARNING: ERROR! Incorrect index|Mon Sep 26 19:20:16 2022
+WARNING: ERROR! Incorrect index|Mon Sep 26 19:20:38 2022
+WARNING: ERROR! Element not found when searching|Mon Sep 26 19:36:59 2022
+WARNING: ERROR! Element not found when searching|Mon Sep 26 19:37:04 2022
+WARNING: ERROR! String was entered. Enter only digit.|Mon Sep 26 19:37:15 2022
+WARNING: ERROR! String was entered. Enter only digit.|Mon Sep 26 19:37:15 2022
+WARNING: ERROR! String was entered. Enter only digit.|Mon Sep 26 19:37:15 2022
+WARNING: ERROR! String was entered. Enter only digit.|Mon Sep 26 19:37:15 2022
+WARNING: ERROR! String was entered. Enter only digit.|Mon Sep 26 19:37:15 2022
+WARNING: ERROR! String was entered. Enter only digit.|Mon Sep 26 19:37:15 2022
+WARNING: ERROR! Enter only one symbol|Mon Sep 26 19:37:22 2022
+WARNING: ERROR! Enter correct point of menu|Mon Sep 26 19:37:36 2022
