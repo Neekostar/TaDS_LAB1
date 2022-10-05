@@ -4,7 +4,7 @@
 #include "MyMenu.h"
 #include <iostream>
 #include <typeinfo>
-#include "C:\\Users\\nekit\\CLionProjects\\TaDS_LAB1\\Models\\Errors.h"
+#include "/home/neekostar/CLionProjects/TaDS_LAB1/Models/Errors.h"
 
 namespace DoublyLinkedList {
 

@@ -126,8 +126,6 @@ void startProgramm(LinkedList list, MyMenu menu) {
 }
 
 int main() {
-    system("chcp 65001");
-
     LinkedList list;
     MyMenuItem items[pointsOfMenu]{
             MyMenuItem{"Добавить элемент в конец списка", addEnd},
